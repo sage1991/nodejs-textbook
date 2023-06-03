@@ -1325,6 +1325,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"http-modules@workspace:packages/http-modules":
+  version: 0.0.0-use.local
+  resolution: "http-modules@workspace:packages/http-modules"
+  languageName: unknown
+  linkType: soft
+
 "ignore@npm:^5.1.1, ignore@npm:^5.2.0":
   version: 5.2.4
   resolution: "ignore@npm:5.2.4"
