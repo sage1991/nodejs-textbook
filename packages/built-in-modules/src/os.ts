@@ -17,5 +17,5 @@ console.log("os.cpus(): ", os.cpus())
 console.log("os.cpus().length: ", os.cpus().length)
 
 console.log("[ Memory ]")
-console.log("os.cpus(): ", os.freemem())
-console.log("os.cpus().length: ", os.totalmem())
+console.log("os.freemem(): ", os.freemem())
+console.log("os.totalmem(): ", os.totalmem())
