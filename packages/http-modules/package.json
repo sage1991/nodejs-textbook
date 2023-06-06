@@ -2,6 +2,6 @@
   "name": "http-modules",
   "packageManager": "yarn@3.5.1",
   "scripts": {
-    "start": "run -T ts-node"
+    "start": "ts-node"
   }
 }
