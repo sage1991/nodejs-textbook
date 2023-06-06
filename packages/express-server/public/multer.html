@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Express</title>
+</head>
+<body>
+    <h1>SINGLE</h1>
+    <form action="/upload/single" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="image">image</label>
+            <input type="file" id="image" name="image">
+        </div>
+        <div>
+            <label for="title-single">title</label>
+            <input type="text" id="title-single" name="title-single">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h1>ARRAY</h1>
+    <form action="/upload/array" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="images">images</label>
+            <input type="file" id="images" name="images" multiple>
+        </div>
+        <div>
+            <label for="title-array">title</label>
+            <input type="text" id="title-array" name="title-array">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h1>FIELD</h1>
+    <form action="/upload/fields" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="image1">image1</label>
+            <input type="file" id="image1" name="image1">
+        </div>
+        <div>
+            <label for="image2">image2</label>
+            <input type="file" id="image2" name="image2">
+        </div>
+        <div>
+            <label for="title-field">title</label>
+            <input type="text" id="title-field" name="title-field">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
