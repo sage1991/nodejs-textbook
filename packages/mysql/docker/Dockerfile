@@ -4,4 +4,4 @@ ARG root_password
 ENV MYSQL_ROOT_PASSWORD=$root_password
 ENV MYSQL_DATABASE=nodejs
 
-COPY ./docker/scripts /docker-entrypoint-initdb.d
+COPY ./docker/init-db.sql /docker-entrypoint-initdb.d
