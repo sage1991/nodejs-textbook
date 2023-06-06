@@ -2,7 +2,7 @@
   "name": "express-server",
   "packageManager": "yarn@3.5.1",
   "scripts": {
-    "dev": "nodemon --watch ./src/**/*.ts --exec ts-node ./src/index.ts"
+    "dev": "nodemon --watch ./src --exec ts-node ./src/index.ts"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
