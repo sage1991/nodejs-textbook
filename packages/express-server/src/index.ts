@@ -1,16 +1,17 @@
 import dotenv from "dotenv"
 import { resolve, extname, basename } from "path"
 import { mkdirSync, readdirSync } from "fs"
-import express, { type NextFunction, type Request, type Response } from "express"
+import express, { type Request, type Response } from "express"
 import cookieParser from "cookie-parser"
 import session from "express-session"
 import morgan from "morgan"
 import multer from "multer"
 
+import { usersRouter } from "./routes"
+
 dotenv.config({ path: resolve(__dirname, "../.env") })
 
 const storage = resolve(__dirname, "../public/uploads")
-
 try {
   readdirSync(storage)
 } catch (e) {
@@ -48,6 +49,8 @@ app.use(
   })
 )
 
+app.use(usersRouter)
+
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, done) {
@@ -76,7 +79,11 @@ app.post("/upload/fields", upload.fields([{ name: "image1" }, { name: "image2" }
   res.status(200).send("OK")
 })
 
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((req, res) => {
+  res.status(404).send("Not Found")
+})
+
+app.use((err: Error, req: Request, res: Response) => {
   res.status(500).send(err.message)
 })
 
