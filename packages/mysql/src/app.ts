@@ -6,23 +6,32 @@ import { resolve } from "path"
 import { dataSource } from "./core/datasource"
 import { HttpError } from "./core/error"
 import { Env } from "./core/const"
-import { commentsRouter, usersRouter } from "./routers"
+
+import { indexRouter } from "./routers"
+import { usersRouter } from "./routers/users"
+import { commentsRouter } from "./routers/comments"
 
 export const bootstrap = async () => {
   const app = express()
 
   app.set("port", Env.port)
   app.set("view engine", "html")
-  nunjucks.configure("views", {
+  nunjucks.configure(resolve(__dirname, "../public"), {
     express: app,
     watch: true
   })
 
   app.use(morgan("dev"))
-  app.use(express.static(resolve(__dirname, "../public")))
   app.use(express.json())
   app.use(express.urlencoded({ extended: false }))
 
+  app.use(
+    express.static(resolve(__dirname, "../public"), {
+      index: false
+    })
+  )
+
+  app.use(indexRouter)
   app.use(usersRouter)
   app.use(commentsRouter)
 
@@ -33,7 +42,7 @@ export const bootstrap = async () => {
   app.use((error: Error, req: Request, res: Response) => {
     res
       .status(error instanceof HttpError ? error.status : 500)
-      .render("error", { message: error.message })
+      .render("error", { message: error.message, error })
   })
 
   try {

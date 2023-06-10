@@ -27,7 +27,7 @@ export class Comment {
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
 
-  @ManyToOne((type) => User)
+  @ManyToOne((type) => User, { eager: true })
   @JoinColumn({ name: "commenter", referencedColumnName: "id" })
-  user: Promise<User>
+  user: User
 }
