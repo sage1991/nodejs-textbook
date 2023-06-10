@@ -6,6 +6,7 @@ import { resolve } from "path"
 import { dataSource } from "./core/datasource"
 import { HttpError } from "./core/error"
 import { Env } from "./core/const"
+import { commentsRouter, usersRouter } from "./routers"
 
 export const bootstrap = async () => {
   const app = express()
@@ -21,6 +22,9 @@ export const bootstrap = async () => {
   app.use(express.static(resolve(__dirname, "../public")))
   app.use(express.json())
   app.use(express.urlencoded({ extended: false }))
+
+  app.use(usersRouter)
+  app.use(commentsRouter)
 
   app.use((req, res, next) => {
     next(new HttpError({ status: 404, message: "Not Found" }))
