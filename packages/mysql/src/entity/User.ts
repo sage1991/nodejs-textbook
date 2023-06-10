@@ -1,4 +1,5 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, Index, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { Comment } from "./Comment"
 
 @Entity({ name: "users" })
 export class User {
@@ -19,7 +20,16 @@ export class User {
   age: number
 
   @Column({
-    type: "tinyint"
+    type: "boolean"
   })
   married: boolean
+
+  @Column({ type: "text", nullable: true })
+  comment: string
+
+  @CreateDateColumn({ name: "created_at" })
+  createdAt: Date
+
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Promise<Comment[]>
 }

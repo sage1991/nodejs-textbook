@@ -6,6 +6,11 @@ do
   esac
 done
 
+if [ -z "$root_password" ]; then
+  echo "root password required"
+  exit 1
+fi
+
 docker build \
   --build-arg "root_password=$root_password" \
   -f docker/Dockerfile \
