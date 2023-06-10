@@ -12,8 +12,7 @@
     "mysql2": "^3.3.3",
     "nunjucks": "^3.2.4",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.32.0",
-    "sequelize-typescript": "^2.1.5"
+    "typeorm": "^0.3.16"
   },
   "devDependencies": {
     "@types/express": "^4",
