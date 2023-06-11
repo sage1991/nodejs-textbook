@@ -1,3 +1,5 @@
 import "./init-env"
 
-console.log("hello world!")
+import { bootstrap } from "./app"
+
+bootstrap()

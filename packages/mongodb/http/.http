@@ -1,0 +1,45 @@
+### find all users
+GET http://localhost:3000/users
+
+### create users
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "user-name",
+  "age": 31,
+  "married": false
+}
+
+### find user by id
+GET http://localhost:3000/users/648587cca3a8893d693f3e13
+
+### find all user comments by user id
+GET http://localhost:3000/users/648587cca3a8893d693f3e13/comments
+
+### find all comments
+GET http://localhost:3000/comments
+
+### create comment
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+  "comment": "나의 코멘트 입니다.",
+  "id": "648587cca3a8893d693f3e13"
+}
+
+### find comment by id
+GET http://localhost:3000/comments/648599a65c49810c88e0c453
+
+### update comment
+PATCH http://localhost:3000/comments/648599a65c49810c88e0c453
+Content-Type: application/json
+
+{
+  "comment": "수정된 코멘트 입니다."
+}
+
+### delete comment
+DELETE http://localhost:3000/comments/648598247eef3c9e89b9154b
+Content-Type: application/json

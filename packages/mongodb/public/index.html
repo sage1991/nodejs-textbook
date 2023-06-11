@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MONGO DB</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid black;
+        }
+    </style>
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="/index.js"></script>
+</head>
+<body>
+    <div>
+        <form id="user-form">
+            <fieldset>
+                <legend>Registration</legend>
+                <div><input id="username" type="text" placeholder="name"></div>
+                <div><input id="age" type="number" placeholder="age"></div>
+                <div><input id="married" type="checkbox"><label for="married">married</label></div>
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <table id="user-list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>age</th>
+                <th>married</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{user._id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>{{ 'married' if user.married else 'not married'}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <div>
+        <form id="comment-form">
+            <fieldset>
+                <legend>댓글 등록</legend>
+                <div><input id="userid" type="text" placeholder="user id"></div>
+                <div><input id="comment" type="text" placeholder="comment"></div>
+                <button type="submit">등록</button>
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <table id="comment-list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>commenter</th>
+                <th>comment</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
