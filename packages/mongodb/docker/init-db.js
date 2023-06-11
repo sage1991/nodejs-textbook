@@ -1,3 +1,5 @@
+// Reference: https://www.mongodb.com/docs/manual/reference/method/#database
+
 // eslint-disable-next-line no-undef
 const nodejs = db.getSiblingDB(process.env.MONGO_INITDB_DATABASE)
 
