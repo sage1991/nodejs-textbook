@@ -1,12 +1,10 @@
+/* eslint-disable no-undef */
 // Reference: https://www.mongodb.com/docs/manual/reference/method/#database
 
-// eslint-disable-next-line no-undef
-const nodejs = db.getSiblingDB(process.env.MONGO_INITDB_DATABASE)
+db.createCollection("users")
+db.createCollection("comments")
 
-nodejs.createCollection("users")
-nodejs.createCollection("comments")
-
-nodejs.users.insertMany([
+db.users.insertMany([
   {
     name: "harry",
     age: 24,
@@ -23,9 +21,9 @@ nodejs.users.insertMany([
   }
 ])
 
-const commenter = nodejs.users.findOne({ name: "harry" }, { _id: 1 })._id
+const commenter = db.users.findOne({ name: "harry" }, { _id: 1 })._id
 
-nodejs.comments.insertOne({
+db.comments.insertOne({
   commenter,
   comment: "This is harry's comment",
   createdAt: new Date()
