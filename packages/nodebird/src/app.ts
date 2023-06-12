@@ -6,10 +6,11 @@ import cookieParser from "cookie-parser"
 import session from "express-session"
 
 import { Env } from "./core/const"
+import { viewRouter } from "./routes"
+import { datasource } from "./core/datasource"
 
-export const bootstrap = () => {
+export const bootstrap = async () => {
   const app = express()
-  app.set("port", Env.port)
   app.set("view engine", "html")
   nunjucks.configure(resolve(__dirname, "../public"), {
     express: app,
@@ -33,7 +34,17 @@ export const bootstrap = () => {
     })
   )
 
-  app.listen(app.get("port"), () => {
-    console.log(`Server listening on port ${app.get("port") as number}`)
+  app.use(viewRouter)
+
+  try {
+    await datasource.initialize()
+    console.log("DB connection successful")
+  } catch (e) {
+    console.error(e)
+    process.exit(1)
+  }
+
+  app.listen(Env.port, () => {
+    console.log(`Server listening on port ${Env.port}`)
   })
 }
