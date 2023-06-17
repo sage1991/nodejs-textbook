@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
@@ -16,16 +17,20 @@ export class Post {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({ name: "content", length: 140 })
+  @Column({ name: "content", type: "varchar", length: 140 })
   content: string
 
-  @Column({ name: "image", length: 200, nullable: true })
+  @Column({ name: "image", type: "varchar", length: 200, nullable: true })
   image: string
+
+  @Column({ name: "commenter" })
+  commenter: number
 
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
 
   @ManyToOne(() => User, (user) => user.posts)
+  @JoinColumn({ name: "commenter" })
   user: Promise<User>
 
   @ManyToMany(() => HashTag, (hashtag) => hashtag.posts)

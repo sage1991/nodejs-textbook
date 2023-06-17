@@ -1,3 +1,5 @@
 export * from "./HashTag"
 export * from "./Post"
 export * from "./User"
+export * from "./Follow"
+export * from "./PostHashTag"

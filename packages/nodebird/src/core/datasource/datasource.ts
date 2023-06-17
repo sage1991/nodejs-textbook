@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm"
 
 import { Env } from "../const"
-import { HashTag, Post, User } from "../../entity"
+import { Follow, HashTag, Post, PostHashTag, User } from "../../entity"
 
 export const datasource = new DataSource({
   type: "mysql",
@@ -10,6 +10,6 @@ export const datasource = new DataSource({
   username: Env.datasource.username,
   password: Env.datasource.password,
   database: Env.datasource.database,
-  logging: true,
-  entities: [User, Post, HashTag]
+  entities: [User, Post, HashTag, Follow, PostHashTag],
+  logging: true
 })

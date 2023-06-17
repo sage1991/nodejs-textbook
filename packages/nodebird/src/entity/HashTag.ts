@@ -16,7 +16,7 @@ export class HashTag {
 
   @Column({
     name: "title",
-    type: "string",
+    type: "varchar",
     length: 15,
     nullable: false,
     unique: true
