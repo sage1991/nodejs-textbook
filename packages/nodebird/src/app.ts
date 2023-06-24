@@ -4,10 +4,12 @@ import { resolve } from "path"
 import morgan from "morgan"
 import cookieParser from "cookie-parser"
 import session from "express-session"
+import passport from "passport"
 
 import { Env } from "./core/const"
 import { viewRouter } from "./routes"
 import { datasource } from "./core/datasource"
+import { authRouter } from "./routes/auth"
 
 export const bootstrap = async () => {
   const app = express()
@@ -33,8 +35,11 @@ export const bootstrap = async () => {
       }
     })
   )
+  app.use(passport.initialize())
+  app.use(passport.session())
 
   app.use(viewRouter)
+  app.use("/auth", authRouter)
 
   try {
     await datasource.initialize()

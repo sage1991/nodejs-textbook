@@ -1,9 +1,11 @@
 import { Router } from "express"
 
+import { isAuthenticated, isNotAuthenticated } from "../middlewares"
+
 export const viewRouter = Router()
 
 viewRouter.use((req, res, next) => {
-  res.locals.user = null
+  res.locals.user = req.user
   res.locals.followerCount = 0
   res.locals.followingCount = 0
   res.locals.followerIdList = []
@@ -18,13 +20,13 @@ viewRouter.get("/", (req, res) => {
   })
 })
 
-viewRouter.get("/profile", (req, res) => {
+viewRouter.get("/profile", isAuthenticated, (req, res) => {
   res.render("profile", {
     title: "내 정보 - NodeBird"
   })
 })
 
-viewRouter.get("/join", (req, res) => {
+viewRouter.get("/join", isNotAuthenticated, (req, res) => {
   res.render("join", {
     title: "회원가입 - NodeBird"
   })
