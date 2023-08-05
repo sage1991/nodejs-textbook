@@ -1,9 +1,9 @@
 import { CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm"
 
-import { User } from "./User"
+import { UserEntity } from "./UserEntity"
 
 @Entity({ name: "follows" })
-export class Follow {
+export class FollowEntity {
   @PrimaryColumn({ name: "follower_id", type: "int" })
   followerId: number
 
@@ -13,11 +13,11 @@ export class Follow {
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => UserEntity)
   @JoinColumn({ name: "follower_id" })
-  follower: Promise<User>
+  follower: Promise<UserEntity>
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => UserEntity)
   @JoinColumn({ name: "following_id" })
-  following: Promise<User>
+  following: Promise<UserEntity>
 }

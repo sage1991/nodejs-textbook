@@ -1,4 +1,4 @@
 import { datasource } from "../core/datasource"
-import { HashTag } from "../entity"
+import { HashTagEntity } from "../entity"
 
-export const hashtagRepository = datasource.getRepository(HashTag)
+export const hashtagRepository = datasource.getRepository(HashTagEntity)

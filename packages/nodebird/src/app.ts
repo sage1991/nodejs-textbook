@@ -7,9 +7,8 @@ import session from "express-session"
 import passport from "passport"
 
 import { Env } from "./core/const"
-import { viewRouter } from "./routes"
+import { viewRouter, authRouter } from "./routes"
 import { datasource } from "./core/datasource"
-import { authRouter } from "./routes/auth"
 
 export const bootstrap = async () => {
   const app = express()

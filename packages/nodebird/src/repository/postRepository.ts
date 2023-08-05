@@ -1,4 +1,4 @@
 import { datasource } from "../core/datasource"
-import { Post } from "../entity"
+import { PostEntity } from "../entity"
 
-export const postRepository = datasource.getRepository(Post)
+export const postRepository = datasource.getRepository(PostEntity)

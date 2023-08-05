@@ -1,10 +1,10 @@
 import { CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm"
 
-import { Post } from "./Post"
-import { HashTag } from "./HashTag"
+import { PostEntity } from "./PostEntity"
+import { HashTagEntity } from "./HashTagEntity"
 
 @Entity({ name: "post_hashtag" })
-export class PostHashTag {
+export class PostHashTagEntity {
   @PrimaryColumn({ name: "post_id", type: "int" })
   postId: number
 
@@ -14,11 +14,11 @@ export class PostHashTag {
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
 
-  @ManyToOne(() => Post)
+  @ManyToOne(() => PostEntity)
   @JoinColumn({ name: "post_id" })
-  post: Promise<Post>
+  post: Promise<PostEntity>
 
-  @ManyToOne(() => HashTag)
+  @ManyToOne(() => HashTagEntity)
   @JoinColumn({ name: "hashtag_id" })
-  hashtag: Promise<HashTag>
+  hashtag: Promise<HashTagEntity>
 }

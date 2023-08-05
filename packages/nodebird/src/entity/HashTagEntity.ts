@@ -7,10 +7,10 @@ import {
   PrimaryGeneratedColumn
 } from "typeorm"
 
-import { Post } from "./Post"
+import { PostEntity } from "./PostEntity"
 
 @Entity({ name: "hashtags" })
-export class HashTag {
+export class HashTagEntity {
   @PrimaryGeneratedColumn()
   id: number
 
@@ -26,11 +26,11 @@ export class HashTag {
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
 
-  @ManyToMany(() => Post, (post) => post.hashtags)
+  @ManyToMany(() => PostEntity, (post) => post.hashtags)
   @JoinTable({
     name: "post_hashtag",
     joinColumn: { name: "hashtag_id" },
     inverseJoinColumn: { name: "post_id" }
   })
-  posts: Promise<Post[]>
+  posts: Promise<PostEntity[]>
 }

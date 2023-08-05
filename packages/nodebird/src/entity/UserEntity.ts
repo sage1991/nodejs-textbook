@@ -8,10 +8,10 @@ import {
   PrimaryGeneratedColumn
 } from "typeorm"
 
-import { Post } from "./Post"
+import { PostEntity } from "./PostEntity"
 
 @Entity({ name: "users" })
-export class User {
+export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number
 
@@ -33,22 +33,22 @@ export class User {
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
 
-  @OneToMany(() => Post, (post) => post.user)
-  posts: Promise<Post[]>
+  @OneToMany(() => PostEntity, (post) => post.user)
+  posts: Promise<PostEntity[]>
 
-  @ManyToMany(() => User)
+  @ManyToMany(() => UserEntity)
   @JoinTable({
     name: "follows",
     joinColumn: { name: "follower_id" },
     inverseJoinColumn: { name: "following_id" }
   })
-  followings: Promise<User[]>
+  followings: Promise<UserEntity[]>
 
-  @ManyToMany(() => User)
+  @ManyToMany(() => UserEntity)
   @JoinTable({
     name: "follows",
     joinColumn: { name: "following_id" },
     inverseJoinColumn: { name: "follower_id" }
   })
-  followers: Promise<User[]>
+  followers: Promise<UserEntity[]>
 }

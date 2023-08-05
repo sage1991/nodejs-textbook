@@ -9,11 +9,11 @@ import {
   PrimaryGeneratedColumn
 } from "typeorm"
 
-import { User } from "./User"
-import { HashTag } from "./HashTag"
+import { UserEntity } from "./UserEntity"
+import { HashTagEntity } from "./HashTagEntity"
 
 @Entity({ name: "posts" })
-export class Post {
+export class PostEntity {
   @PrimaryGeneratedColumn()
   id: number
 
@@ -29,15 +29,15 @@ export class Post {
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
 
-  @ManyToOne(() => User, (user) => user.posts)
+  @ManyToOne(() => UserEntity, (user) => user.posts)
   @JoinColumn({ name: "commenter" })
-  user: Promise<User>
+  user: Promise<UserEntity>
 
-  @ManyToMany(() => HashTag, (hashtag) => hashtag.posts)
+  @ManyToMany(() => HashTagEntity, (hashtag) => hashtag.posts)
   @JoinTable({
     name: "post_hashtag",
     joinColumn: { name: "post_id" },
     inverseJoinColumn: { name: "hashtag_id" }
   })
-  hashtags: Promise<HashTag[]>
+  hashtags: Promise<HashTagEntity[]>
 }
