@@ -9,6 +9,7 @@ import passport from "passport"
 import { Env } from "./core/const"
 import { viewRouter, authRouter } from "./routes"
 import { datasource } from "./core/datasource"
+import { configure } from "./core/passport"
 
 export const bootstrap = async () => {
   const app = express()
@@ -34,6 +35,8 @@ export const bootstrap = async () => {
       }
     })
   )
+
+  configure()
   app.use(passport.initialize())
   app.use(passport.session())
 

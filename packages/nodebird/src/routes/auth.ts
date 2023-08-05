@@ -4,6 +4,7 @@ import passport from "passport"
 
 import { isAuthenticated, isNotAuthenticated } from "../middlewares"
 import { userRepository } from "../repository"
+import { Env } from "../core/const"
 
 export const authRouter = Router()
 
@@ -54,9 +55,22 @@ authRouter.post("/login", isNotAuthenticated, (req, res, next) => {
   })(req, res, next)
 })
 
-authRouter.post("/logout", isAuthenticated, (req, res) => {
-  req.logout()
-  req.session.destroy(() => {
-    res.redirect("/")
+authRouter.get("/logout", isAuthenticated, (req, res) => {
+  req.logout(() => {
+    req.session.destroy(() => {
+      res.redirect("/")
+    })
   })
 })
+
+authRouter.get("/kakao", passport.authenticate("kakao"))
+
+authRouter.get(
+  "/kakao/oauth",
+  passport.authenticate("kakao", {
+    failureRedirect: "/"
+  }),
+  (req, res) => {
+    res.redirect("/")
+  }
+)

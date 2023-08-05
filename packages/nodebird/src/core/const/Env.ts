@@ -12,7 +12,6 @@ export namespace Env {
   }
 
   export const kakao = {
-    clientId: process.env.KAKAO_CLIENT_ID!,
-    callbackURL: process.env.KAKAO_CALLBACK_URL!
+    clientId: process.env.KAKAO_CLIENT_ID!
   }
 }

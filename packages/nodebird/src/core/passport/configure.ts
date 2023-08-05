@@ -1,5 +1,6 @@
 import passport from "passport"
 import { userRepository } from "../../repository"
+import { kakao, local } from "./strategies"
 
 export const configure = () => {
   passport.serializeUser((user: any, done) => {
@@ -14,4 +15,7 @@ export const configure = () => {
       done(e)
     }
   })
+
+  passport.use(local)
+  passport.use(kakao)
 }

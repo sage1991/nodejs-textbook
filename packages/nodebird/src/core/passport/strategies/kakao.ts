@@ -5,7 +5,7 @@ import { userRepository } from "../../../repository"
 export const kakao = new Strategy(
   {
     clientID: Env.kakao.clientId,
-    callbackURL: Env.kakao.callbackURL
+    callbackURL: "/auth/kakao/oauth"
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
@@ -14,7 +14,7 @@ export const kakao = new Strategy(
       if (!user) {
         user = await userRepository.save(
           userRepository.create({
-            email: profile._json.kakao_account_email,
+            email: profile._json.kakao_account.email,
             nickname: profile.displayName,
             snsId: profile.id,
             provider: "kakao"
