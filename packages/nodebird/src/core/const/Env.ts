@@ -10,4 +10,9 @@ export namespace Env {
     password: process.env.DB_PASSWORD!,
     database: process.env.DB_SCHEMA!
   }
+
+  export const kakao = {
+    clientId: process.env.KAKAO_CLIENT_ID!,
+    callbackURL: process.env.KAKAO_CALLBACK_URL!
+  }
 }
