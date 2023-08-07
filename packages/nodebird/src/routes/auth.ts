@@ -4,7 +4,6 @@ import passport from "passport"
 
 import { isAuthenticated, isNotAuthenticated } from "../middlewares"
 import { userRepository } from "../repository"
-import { Env } from "../core/const"
 
 export const authRouter = Router()
 
