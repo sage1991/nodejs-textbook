@@ -4,7 +4,8 @@
   "scripts": {
     "mongo:build": "sh ./docker/scripts/build.sh",
     "mongo:start": "sh ./docker/scripts/start.sh",
-    "dev": "nodemon --watch ./src --exec ts-node src/index.ts"
+    "dev": "nodemon --watch ./src --exec ts-node src/index.ts",
+    "lint": "eslint \"src/**/*.ts\" --fix"
   },
   "dependencies": {
     "express": "^4.18.2",

@@ -1,5 +1,5 @@
-import { deprecate, promisify } from "util"
 import crypto from "crypto"
+import { deprecate, promisify } from "util"
 
 const add = deprecate((a: number, b: number) => a + b, "This function is deprecated")
 const result = add(1, 2)

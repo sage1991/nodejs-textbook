@@ -1,5 +1,5 @@
-import { access } from "fs/promises"
 import { constants } from "fs"
+import { access } from "fs/promises"
 
 export const exist = async (file: string) => {
   try {

@@ -1,6 +1,7 @@
 import { Strategy } from "passport-kakao"
-import { Env } from "../../const"
+
 import { userRepository } from "../../../repository"
+import { Env } from "../../const"
 
 export const kakao = new Strategy(
   {

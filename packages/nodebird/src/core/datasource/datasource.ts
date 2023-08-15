@@ -1,6 +1,5 @@
 import { DataSource } from "typeorm"
 
-import { Env } from "../const"
 import {
   FollowEntity,
   HashTagEntity,
@@ -8,6 +7,7 @@ import {
   PostHashTagEntity,
   UserEntity
 } from "../../entity"
+import { Env } from "../const"
 
 export const datasource = new DataSource({
   type: "mysql",

@@ -1,4 +1,5 @@
 import { Column, CreateDateColumn, Entity, Index, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+
 import { Comment } from "./Comment"
 
 @Entity({ name: "users" })

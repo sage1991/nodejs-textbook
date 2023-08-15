@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm"
 
+import { Comment, User } from "../../entity"
 import { Env } from "../const"
-import { User, Comment } from "../../entity"
 
 export const dataSource = new DataSource({
   type: "mysql",

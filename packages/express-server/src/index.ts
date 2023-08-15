@@ -1,11 +1,11 @@
-import dotenv from "dotenv"
-import { resolve, extname, basename } from "path"
-import { mkdirSync, readdirSync } from "fs"
-import express, { type Request, type Response } from "express"
 import cookieParser from "cookie-parser"
+import dotenv from "dotenv"
+import express, { type Request, type Response } from "express"
 import session from "express-session"
+import { mkdirSync, readdirSync } from "fs"
 import morgan from "morgan"
 import multer from "multer"
+import { basename, extname, resolve } from "path"
 
 import { usersRouter } from "./routes"
 

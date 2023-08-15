@@ -1,4 +1,4 @@
-import { Worker, isMainThread, parentPort, workerData } from "worker_threads"
+import { isMainThread, parentPort, Worker, workerData } from "worker_threads"
 
 import { findPrimeNumbers, type Range } from "./findPrimeNumbers"
 

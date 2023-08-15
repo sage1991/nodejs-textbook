@@ -1,15 +1,15 @@
-import express from "express"
-import nunjucks from "nunjucks"
-import { resolve } from "path"
-import morgan from "morgan"
 import cookieParser from "cookie-parser"
+import express from "express"
 import session from "express-session"
+import morgan from "morgan"
+import nunjucks from "nunjucks"
 import passport from "passport"
+import { resolve } from "path"
 
 import { Env } from "./core/const"
-import { viewRouter, authRouter } from "./routes"
 import { datasource } from "./core/datasource"
 import { configure } from "./core/passport"
+import { authRouter, viewRouter } from "./routes"
 
 export const bootstrap = async () => {
   const app = express()

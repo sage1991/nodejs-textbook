@@ -1,6 +1,6 @@
+import { readFile } from "fs/promises"
 import { createServer, type RequestListener } from "http"
 import { join } from "path"
-import { readFile } from "fs/promises"
 
 const html: RequestListener = async (req, res) => {
   let { url = "/" } = req

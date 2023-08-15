@@ -1,4 +1,4 @@
-import { URL, format } from "url"
+import { format, URL } from "url"
 
 const url = new URL(
   "https://github.com/sage1991/nodejs-textbook/blob/master/packages/built-in-modules/README.md?plain=1&category=nodejs&category=javascript#L1"

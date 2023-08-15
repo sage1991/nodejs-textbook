@@ -1,6 +1,6 @@
+import { readFile } from "fs/promises"
 import { createServer } from "http"
 import { resolve } from "path"
-import { readFile } from "fs/promises"
 
 const index = resolve(__dirname, "index.html")
 

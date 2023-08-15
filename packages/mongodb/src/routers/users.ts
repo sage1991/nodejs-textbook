@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-import { User, Comment } from "../schema"
+import { Comment, User } from "../schema"
 
 export const usersRouter = Router()
 

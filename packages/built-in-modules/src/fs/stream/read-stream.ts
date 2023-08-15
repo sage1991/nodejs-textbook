@@ -1,5 +1,5 @@
-import { resolve } from "path"
 import { createReadStream } from "fs"
+import { resolve } from "path"
 
 const file = resolve(__dirname, "read-stream.md")
 

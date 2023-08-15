@@ -1,5 +1,5 @@
-import { Router } from "express"
 import bcrypt from "bcrypt"
+import { Router } from "express"
 import passport from "passport"
 
 import { isAuthenticated, isNotAuthenticated } from "../middlewares"

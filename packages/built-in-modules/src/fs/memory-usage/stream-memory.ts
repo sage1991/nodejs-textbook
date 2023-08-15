@@ -1,5 +1,5 @@
-import { resolve } from "path"
 import { createReadStream, createWriteStream } from "fs"
+import { resolve } from "path"
 
 console.log("before: ", process.memoryUsage().rss.toLocaleString("ko-KR"))
 

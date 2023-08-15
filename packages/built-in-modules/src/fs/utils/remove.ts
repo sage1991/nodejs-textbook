@@ -1,5 +1,5 @@
-import { resolve } from "path"
 import { readdir, rmdir, unlink } from "fs/promises"
+import { resolve } from "path"
 
 import { exist } from "./exist"
 

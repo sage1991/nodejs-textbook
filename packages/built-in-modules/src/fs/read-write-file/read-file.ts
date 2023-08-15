@@ -1,5 +1,5 @@
-import { resolve } from "path"
 import { readFile } from "fs/promises"
+import { resolve } from "path"
 
 readFile(resolve(__dirname, "read-file.md"))
   .then((data) => {

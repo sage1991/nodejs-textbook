@@ -7,6 +7,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn
 } from "typeorm"
+
 import { User } from "./User"
 
 @Entity({ name: "comments" })

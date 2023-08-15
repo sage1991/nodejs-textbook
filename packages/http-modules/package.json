@@ -2,6 +2,7 @@
   "name": "http-modules",
   "packageManager": "yarn@3.5.1",
   "scripts": {
-    "start": "ts-node"
+    "start": "ts-node",
+    "lint": "eslint \"src/**/*.ts\" --fix"
   }
 }

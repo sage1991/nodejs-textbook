@@ -9,8 +9,8 @@ import {
   PrimaryGeneratedColumn
 } from "typeorm"
 
-import { UserEntity } from "./UserEntity"
 import { HashTagEntity } from "./HashTagEntity"
+import { UserEntity } from "./UserEntity"
 
 @Entity({ name: "posts" })
 export class PostEntity {

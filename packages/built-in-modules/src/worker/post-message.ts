@@ -1,4 +1,4 @@
-import { Worker, isMainThread, parentPort } from "worker_threads"
+import { isMainThread, parentPort, Worker } from "worker_threads"
 
 if (isMainThread) {
   const worker = new Worker(__filename, { execArgv: ["--require", "ts-node/register"] })

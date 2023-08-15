@@ -1,6 +1,7 @@
-import { Strategy } from "passport-local"
-import { userRepository } from "../../../repository"
 import bcrypt from "bcrypt"
+import { Strategy } from "passport-local"
+
+import { userRepository } from "../../../repository"
 
 export const local = new Strategy(
   {

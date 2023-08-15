@@ -1,14 +1,14 @@
 import express, { type Request, type Response } from "express"
-import nunjucks from "nunjucks"
 import morgan from "morgan"
+import nunjucks from "nunjucks"
 import { resolve } from "path"
 
 import { Env } from "./core/const"
-import { HttpError } from "./core/error"
 import { connect } from "./core/datasource"
+import { HttpError } from "./core/error"
 import { indexRouter } from "./routers"
-import { usersRouter } from "./routers/users"
 import { commentsRouter } from "./routers/comments"
+import { usersRouter } from "./routers/users"
 
 export const bootstrap = async () => {
   const app = express()

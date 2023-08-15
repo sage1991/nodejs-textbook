@@ -1,5 +1,5 @@
-import { resolve } from "path"
 import { readFile, writeFile } from "fs/promises"
+import { resolve } from "path"
 
 const file = resolve(__dirname, "write-file.md")
 

@@ -1,7 +1,7 @@
 import { CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm"
 
-import { PostEntity } from "./PostEntity"
 import { HashTagEntity } from "./HashTagEntity"
+import { PostEntity } from "./PostEntity"
 
 @Entity({ name: "post_hashtag" })
 export class PostHashTagEntity {

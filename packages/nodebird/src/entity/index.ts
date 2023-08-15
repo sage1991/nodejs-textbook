@@ -1,5 +1,5 @@
+export * from "./FollowEntity"
 export * from "./HashTagEntity"
 export * from "./PostEntity"
-export * from "./UserEntity"
-export * from "./FollowEntity"
 export * from "./PostHashTagEntity"
+export * from "./UserEntity"
