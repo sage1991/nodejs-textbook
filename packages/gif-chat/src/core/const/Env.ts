@@ -1,6 +1,8 @@
 import * as process from "process"
 
 export namespace Env {
+  export const port = +process.env.PORT
+  export const webSocketPort = +process.env.WEB_SOCKET_PORT
   export const cookieSecret = process.env.COOKIE_SECRET!
 
   export const mongo = {
@@ -10,6 +12,4 @@ export namespace Env {
     password: process.env.MONGO_PASSWORD!,
     dbName: process.env.MONGO_DB_NAME!
   }
-
-  export const webSocketPort = +process.env.WEB_SOCKET_PORT
 }
