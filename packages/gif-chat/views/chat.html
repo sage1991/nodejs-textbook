@@ -43,10 +43,14 @@
 
 {% block script %}
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 <script>
-  const socket = io.connect("http://localhost:8005/chat", {
-    path: "/socket.io"
+  const socket = io.connect("ws://localhost:3030/chat", {
+    transports: ["websocket"],
+  })
+
+  socket.on("connect", () => {
+    console.log("websocket connected")
   })
 
   socket.emit("join", new URL(location).pathname.split("/").at(-1))

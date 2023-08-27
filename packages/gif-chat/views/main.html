@@ -39,11 +39,15 @@
 {% endblock %}
 
 {% block script %}
-<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 <script>
     // room namespace
-    const socket = io.connect("http://localhost:8005/room", {
-      path: "/socket.io"
+    const socket = io.connect("ws://localhost:3030/room", {
+      transports: ["websocket"],
+    })
+
+    socket.on("connect", () => {
+      console.log("websocket connected")
     })
 
     const navigateToChatRoom = ({ target }) => {

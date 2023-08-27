@@ -8,7 +8,9 @@ import {
 } from "@nestjs/websockets"
 import { type Server, type Socket } from "socket.io"
 
-@WebSocketGateway({ namespace: "room", transports: ["websocket"] })
+import { Env } from "../../core/const"
+
+@WebSocketGateway(Env.webSocketPort, { namespace: "room", transports: ["websocket"] })
 export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   private readonly server: Server
