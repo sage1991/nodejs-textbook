@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 import mongoose, { type HydratedDocument } from "mongoose"
 
-import { Room } from "./room.schema"
+import { Room } from "../../room/schemas"
 
 @Schema()
 export class Chat {

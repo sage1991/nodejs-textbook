@@ -9,6 +9,7 @@ describe("RoomGateway", () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [RoomGateway]
     }).compile()
+
     gateway = module.get<RoomGateway>(RoomGateway)
   })
 

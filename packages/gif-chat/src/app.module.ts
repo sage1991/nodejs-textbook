@@ -1,8 +1,10 @@
 import { Module } from "@nestjs/common"
 import { MongooseModule } from "@nestjs/mongoose"
 
+import { AppController } from "./app.controller"
 import { ChatModule } from "./chat/chat.module"
 import { Env } from "./core/const"
+import { RoomModule } from "./room/room.module"
 
 @Module({
   imports: [
@@ -11,7 +13,9 @@ import { Env } from "./core/const"
       pass: Env.mongo.password,
       dbName: Env.mongo.dbName
     }),
-    ChatModule
-  ]
+    ChatModule,
+    RoomModule
+  ],
+  controllers: [AppController]
 })
 export class AppModule {}
