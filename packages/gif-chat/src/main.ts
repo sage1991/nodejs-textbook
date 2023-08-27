@@ -23,7 +23,7 @@ const bootstrap = async () => {
   app.setBaseViewsDir(views)
   app.setViewEngine("njk")
 
-  app.useWebSocketAdapter(new SessionAdaptor(session))
+  app.useWebSocketAdapter(new SessionAdaptor([session, color]))
 
   mongoose.set("debug", true)
   await app.listen(3000)
