@@ -2,7 +2,7 @@ import { IoAdapter } from "@nestjs/platform-socket.io"
 import { type RequestHandler } from "express"
 import { type Server, type ServerOptions } from "socket.io"
 
-export class SessionAdaptor extends IoAdapter {
+export class WebSocketAdaptor extends IoAdapter {
   constructor(private readonly sessions: RequestHandler[]) {
     super()
   }

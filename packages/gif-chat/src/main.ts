@@ -7,7 +7,7 @@ import nunjucks from "nunjucks"
 import path from "path"
 
 import { AppModule } from "./app.module"
-import { SessionAdaptor } from "./core/adaptors"
+import { WebSocketAdaptor } from "./core/adaptors"
 import { color, session } from "./core/middlewares"
 
 const bootstrap = async () => {
@@ -18,12 +18,11 @@ const bootstrap = async () => {
 
   const views = path.resolve(__dirname, "../views")
   nunjucks.configure(views, { express: app.getHttpAdapter().getInstance(), watch: true })
-
   app.useStaticAssets(path.resolve(__dirname, "../public"))
   app.setBaseViewsDir(views)
   app.setViewEngine("njk")
 
-  app.useWebSocketAdapter(new SessionAdaptor([session, color]))
+  app.useWebSocketAdapter(new WebSocketAdaptor([session, color]))
 
   mongoose.set("debug", true)
   await app.listen(3000)
