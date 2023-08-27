@@ -15,12 +15,10 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   handleConnection(client: Socket) {
     console.log("chat namespace 에 접속")
-    const req = client.request
-    console.log(req)
-
     const {
-      headers: { referer }
-    } = req
+      headers: { referer },
+      session
+    } = client.request
 
     const { pathname } = new URL(referer)
     const id = pathname.split("/").pop()
@@ -28,22 +26,29 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     client.to(id).emit("join", {
       user: "system",
-      chat: "님이 입장 하셨습니다."
+      chat: `${session.color}님이 입장 하셨습니다.`
     })
   }
 
-  handleDisconnect(client: Socket) {
+  async handleDisconnect(client: Socket) {
     console.log("chat namespace 에서 접속 해제")
     const {
-      headers: { referer }
+      headers: { referer },
+      session
     } = client.request
     const { pathname } = new URL(referer)
     const id = pathname.split("/").pop()
     client.leave(id)
 
+    const sockets = await client.in(id).fetchSockets()
+    if (sockets.length === 0) {
+      // remove room
+      return
+    }
+
     client.to(id).emit("exit", {
       user: "system",
-      chat: "님이 입장 하셨습니다."
+      chat: `${session.color}님이 퇴장 하셨습니다.`
     })
   }
 
