@@ -9,7 +9,9 @@
   ],
   "packageManager": "yarn@3.5.1",
   "devDependencies": {
+    "@types/color-hash": "^1.0.2",
     "@types/eslint": "^8",
+    "@types/express-session": "^1",
     "@types/node": "^20.2.1",
     "@types/prettier": "^2",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
@@ -27,5 +29,9 @@
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "color-hash": "^2.0.2",
+    "express-session": "^1.17.3"
   }
 }
