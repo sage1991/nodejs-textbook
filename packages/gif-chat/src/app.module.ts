@@ -2,9 +2,9 @@ import { Module } from "@nestjs/common"
 import { MongooseModule } from "@nestjs/mongoose"
 
 import { AppController } from "./app.controller"
-import { ChatModule } from "./chat/chat.module"
+import { ChattingModule } from "./chatting/chatting.module"
 import { Env } from "./core/const"
-import { RoomModule } from "./room/room.module"
+import { SocketModule } from "./core/socket"
 
 @Module({
   imports: [
@@ -13,8 +13,8 @@ import { RoomModule } from "./room/room.module"
       pass: Env.mongo.password,
       dbName: Env.mongo.dbName
     }),
-    ChatModule,
-    RoomModule
+    SocketModule,
+    ChattingModule
   ],
   controllers: [AppController]
 })

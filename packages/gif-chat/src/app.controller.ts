@@ -4,7 +4,7 @@ import { Controller, Get, Render } from "@nestjs/common"
 export class AppController {
   @Get("/")
   @Render("main.html")
-  root() {
+  renderMain() {
     return { title: "GIF 채팅방", rooms: [] }
   }
 }
