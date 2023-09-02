@@ -44,7 +44,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     const sockets = await client.in(id).fetchSockets()
     if (sockets.length === 0) {
-      // remove room
+      // TODO: remove room
       return
     }
 
